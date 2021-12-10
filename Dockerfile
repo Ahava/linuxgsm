@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 # Stop apt-get asking to get Dialog frontend
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -33,7 +33,7 @@ RUN dpkg --add-architecture i386 && \
         gzip \
         iproute2 \
         jq \
-        lib32gcc1 \
+        lib32gcc-s1 \
         lib32stdc++6 \
         libsdl2-2.0-0:i386 \
         locales \
@@ -43,6 +43,7 @@ RUN dpkg --add-architecture i386 && \
         postfix \
         procps \
         python \
+        rng-tools \
         tar \
         tmux \
         util-linux \
