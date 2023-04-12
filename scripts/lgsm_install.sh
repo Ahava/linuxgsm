@@ -19,12 +19,13 @@ fi
 if [ "$(fn_lgsm_version)" != "latest" ]
 then
     lgsm_install="https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/$(fn_lgsm_version)/linuxgsm.sh"
+fi
 
-    # Check if specific version exists
-    if [ "$(fn_validate_url ${lgsm_install})" != "OK" ]
-    then
-        lgsm_install="${lgms_script_latest}"
-    fi
+# Validate URL
+if [ "$(fn_validate_url ${lgsm_install})" != "OK" ]
+then
+    echo "URL cannot be reached: ${lgsm_install}"
+    exit 1
 fi
 
 # Download install script
